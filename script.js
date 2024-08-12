@@ -42,6 +42,7 @@ function* createPeopleIterator() {
   let index = 0;
   while (true) {
     yield people[index++ % people.length];
+    //people[0~4]
   }
 }
 
@@ -49,6 +50,7 @@ const iterator = createPeopleIterator();
 
 nextBtn.addEventListener('click', () => {
   const person = iterator.next().value;
+  console.log(person);
   img.src = person.imageURL;
   profileInfo.querySelector('h3').textContent = person.name;
   profileInfo.querySelectorAll('p')[0].textContent = `${person.age} Years Old`;
